@@ -40,8 +40,8 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Họ tên: " + userName + "\n" +
-                "Số điện thoại: " + phoneNumber + "\n" +
-                "Email: " + emailAddress;
+        return "UserName: " + userName + "\n" +
+                "PhoneNumber: " + phoneNumber + "\n" +
+                "EmailAddress: " + emailAddress;
     }
 }

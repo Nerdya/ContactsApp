@@ -66,6 +66,7 @@ public class ContactRVAdapter extends RecyclerView.Adapter<ContactRVAdapter.View
         holder.itemView.setOnClickListener(view -> {
             // Opening new activity and passing data
             Intent intent = new Intent(context, ContactDetailActivity.class);
+            intent.putExtra("id", contact.getId());
             intent.putExtra("userName", contact.getUserName());
             intent.putExtra("phoneNumber", contact.getPhoneNumber());
             intent.putExtra("emailAddress", contact.getEmailAddress());

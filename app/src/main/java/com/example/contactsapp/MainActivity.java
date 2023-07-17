@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         contactArrayList = new ArrayList<>();
         contactRV = findViewById(R.id.idRVContacts);
         FloatingActionButton addNewContactFAB = findViewById(R.id.idFABAdd);
+        FloatingActionButton githubFAB = findViewById(R.id.idFABGithub);
         loadingPB = findViewById(R.id.idPBLoading);
 
         // Calling method to prepare recycler view
@@ -56,9 +57,15 @@ public class MainActivity extends AppCompatActivity {
         // Calling method to request permissions
         requestPermissions();
 
-        // Adding onClickListener for fab
+        // Adding onClickListener for fab add
         addNewContactFAB.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, CreateNewContactActivity.class);
+            startActivity(intent);
+        });
+
+        // Adding onClickListener for fab github
+        githubFAB.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Nerdya/ContactsApp"));
             startActivity(intent);
         });
     }
@@ -219,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                     if (phoneCursor.moveToNext()) {
                         //on below line we are getting the phone number for our users and then adding the name along with phone number in array list.
                         String phoneNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                        contactArrayList.add(new Contact(displayName, phoneNumber, ""));
+                        contactArrayList.add(new Contact(contactId, displayName, phoneNumber, ""));
                     }
                     //on below line we are closing our phone cursor.
                     phoneCursor.close();

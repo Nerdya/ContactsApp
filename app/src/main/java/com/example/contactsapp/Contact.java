@@ -1,6 +1,7 @@
 package com.example.contactsapp;
 
 public class Contact {
+    private String id;
     private String userName;
     private String phoneNumber;
     private String emailAddress;
@@ -8,10 +9,19 @@ public class Contact {
     public Contact() {
     }
 
-    public Contact(String userName, String phoneNumber, String emailAddress) {
+    public Contact(String id, String userName, String phoneNumber, String emailAddress) {
+        this.id = id;
         this.userName = userName;
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUserName() {
